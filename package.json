@@ -1,0 +1,34 @@
+{
+  "name": "scalabilitymodes",
+  "version": "0.0.0",
+  "description": "Scalability modes parsing function extracted from Mediasoup",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mafalda-SFU/scalability-modes.git"
+  },
+  "keywords": [
+    "Mediasoup",
+    "spatial",
+    "layers",
+    "temporal",
+    "layers",
+    "SFU",
+    "SVC",
+    "simulcast"
+  ],
+  "author": "Jesús Leganés-Combarro 'piranna' <piranna@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mafalda-SFU/scalability-modes/issues"
+  },
+  "homepage": "https://github.com/Mafalda-SFU/scalability-modes#readme",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}

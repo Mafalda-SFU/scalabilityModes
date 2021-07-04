@@ -1,0 +1,14 @@
+{
+	"compileOnSave": true,
+	"compilerOptions":
+	{
+		"lib": [ "es2018" ],
+		"target": "es2018",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"strict": true,
+		"declaration": true,
+		"declarationMap": true
+	},
+	"include": [ "." ]
+}
