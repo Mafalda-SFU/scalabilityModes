@@ -1,5 +1,5 @@
 {
-  "name": "scalabilitymodes",
+  "name": "@mafalda/scalabilitymodes",
   "version": "0.0.0",
   "description": "Scalability modes parsing function extracted from Mediasoup",
   "main": "index.js",
