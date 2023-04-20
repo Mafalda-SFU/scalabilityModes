@@ -1,6 +1,6 @@
 {
   "name": "@mafalda-sfu/scalabilitymodes",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Scalability modes parsing function extracted from Mediasoup",
   "main": "index.js",
   "scripts": {
