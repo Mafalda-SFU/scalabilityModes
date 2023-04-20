@@ -1,5 +1,5 @@
 {
-  "name": "@mafalda/scalabilitymodes",
+  "name": "@mafalda-sfu/scalabilitymodes",
   "version": "0.0.0",
   "description": "Scalability modes parsing function extracted from Mediasoup",
   "main": "index.js",
@@ -29,6 +29,6 @@
   },
   "homepage": "https://github.com/Mafalda-SFU/scalability-modes#readme",
   "devDependencies": {
-    "typescript": "^4.9.5"
+    "typescript": "^5.0.4"
   }
 }
