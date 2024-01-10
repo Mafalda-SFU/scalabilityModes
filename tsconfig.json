@@ -1,14 +1,20 @@
 {
 	"compileOnSave": true,
-	"compilerOptions":
-	{
-		"lib": [ "es2018" ],
-		"target": "es2018",
+	"compilerOptions": {
+		"lib": ["es2021"],
+		"target": "esnext",
 		"module": "commonjs",
 		"moduleResolution": "node",
 		"strict": true,
+		"outDir": "lib",
 		"declaration": true,
 		"declarationMap": true
 	},
-	"include": [ "." ]
+	"include": ["src"],
+	"watchOptions": {
+		"watchFile": "useFsEvents",
+		"watchDirectory": "useFsEvents",
+		"fallbackPolling": "dynamicPriority",
+		"synchronousWatchDirectory": true
+	}
 }
