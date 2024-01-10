@@ -50,7 +50,7 @@ function isNotRustRelease({tag_name})
 
   for await (const entry of extract)
   {
-    const {name, type} = entry.header
+    const {name} = entry.header
 
     let path = name.split(sep)
     path.shift()
