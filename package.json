@@ -2,7 +2,7 @@
   "name": "@mafalda-sfu/scalabilitymodes",
   "version": "0.0.1",
   "description": "Scalability modes parsing function extracted from Mediasoup",
-  "main": "index.js",
+  "main": "lib/scalabilityModes.js",
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",

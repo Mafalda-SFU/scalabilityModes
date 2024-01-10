@@ -56,19 +56,15 @@ function isNotRustRelease({tag_name})
     path.shift()
     path = path.join(sep)
 
-    if(path === 'node/tsconfig.json')
+    if(path === 'node/tsconfig.json' || path === 'node/src/scalabilityModes.ts')
     {
+      path = path.split(sep)
+      path.shift()
+      path = path.join(sep)
+
       const content = await text(entry);
 
-      await writeFile('tsconfig.json', content, 'utf8')
-      continue
-    }
-
-    if(path === 'node/src/scalabilityModes.ts')
-    {
-      const content = await text(entry);
-
-      await writeFile('index.ts', content, 'utf8')
+      await writeFile(path, content, 'utf8')
       continue
     }
 
