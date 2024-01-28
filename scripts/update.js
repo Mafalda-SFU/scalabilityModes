@@ -6,51 +6,26 @@ const {Readable} = require('node:stream');
 const {text} = require('node:stream/consumers');
 const {createGunzip} = require('node:zlib');
 
-const PackageJson = require('@npmcli/package-json');
-const eq = require('semver/functions/eq.js');
-const lt = require('semver/functions/lt.js');
-const simpleGit = require('simple-git');
-const tar = require('tar-stream');
+const {extract} = require('tar-stream');
 
 
 const repo = 'versatica/mediasoup'
 
 
-function isNotRustRelease({tag_name})
-{
-  return !tag_name.startsWith('rust-')
-}
+const {argv: [,, version]} = process
 
 
 (async function()
 {
-  const releases = await fetch(`https://api.github.com/repos/${repo}/releases`)
-    .then(res => res.json())
+  const {body} = await fetch(
+    `https://api.github.com/repos/${repo}/tarball/${version}`
+  )
 
-  const {url} = releases.find(isNotRustRelease)
+  const extractor = Readable.fromWeb(body).pipe(createGunzip()).pipe(extract())
 
-  const [{tag_name: version, tarball_url}, pkgJson] = await Promise.all([
-    fetch(url)
-    .then(res => res.json()),
-    PackageJson.load('.')
-  ])
-
-  if(lt(version, pkgJson.content.version))
-    throw new Error(
-      `Published mediasoup version ${version} is older than version ` +
-      `${pkgJson.content.version} from the package.json file. Maybe there's ` +
-      `a mistake in the package.json version?`
-    )
-
-  if(eq(version, pkgJson.content.version)) return
-
-  const {body} = await fetch(tarball_url)
-
-  const extract = Readable.fromWeb(body).pipe(createGunzip()).pipe(tar.extract())
-
-  for await (const entry of extract)
+  for await (const entry of extractor)
   {
-    const {name} = entry.header
+    const {header: {name}} = entry
 
     let path = name.split(sep)
     path.shift()
@@ -70,27 +45,4 @@ function isNotRustRelease({tag_name})
 
     entry.resume()
   }
-
-  const git = simpleGit()
-  const {files: {length}} = await git.status()
-  if(!length) return
-
-  const {
-    content: {
-      dependencies, devDependencies, optionalDependencies, peerDependencies
-    }
-  } = pkgJson
-
-  pkgJson.update({
-    dependencies,
-    devDependencies,
-    optionalDependencies,
-    peerDependencies,
-    version
-  })
-
-  await pkgJson.save()
-
-  // Print new version
-  console.log(version)
 })()

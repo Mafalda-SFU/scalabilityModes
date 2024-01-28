@@ -1,0 +1,9 @@
+name: pull request
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    uses: mafalda-sfu/workflows/.github/workflows/pull_request.yml@v1
