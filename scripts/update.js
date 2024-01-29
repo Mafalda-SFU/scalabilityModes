@@ -12,7 +12,7 @@ const {extract} = require('tar-stream');
 const repo = 'versatica/mediasoup'
 
 
-const {argv: [,, version]} = process
+const {argv: [,, version]} = process;
 
 
 (async function()
