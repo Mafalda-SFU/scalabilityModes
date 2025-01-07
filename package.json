@@ -29,6 +29,6 @@
   "homepage": "https://github.com/Mafalda-SFU/scalabilityModesUtils#readme",
   "devDependencies": {
     "tar-stream": "^3.1.7",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.2"
   }
 }
