@@ -37,8 +37,11 @@ ok(version, 'version is required');
     path.shift()
     path = path.join(sep)
 
-    if(path === 'node/tsconfig.json' || path === 'node/src/scalabilityModes.ts')
-    {
+    if(
+      path === 'node/tsconfig.json' ||
+      path === 'node/src/scalabilityModesTypes.ts' ||
+      path === 'node/src/scalabilityModesUtils.ts'
+    ) {
       path = path.split(sep)
       path.shift()
       path = path.join(sep)
