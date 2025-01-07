@@ -1,7 +1,7 @@
 {
-  "name": "@mafalda-sfu/scalabilitymodes",
+  "name": "@mafalda-sfu/scalabilitymodesutils",
   "version": "3.15.2",
-  "description": "Scalability modes parsing function extracted from Mediasoup",
+  "description": "Scalability modes utils extracted from Mediasoup",
   "main": "lib/scalabilityModesUtils.js",
   "scripts": {
     "build": "tsc",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mafalda-SFU/scalabilityModes.git"
+    "url": "git+https://github.com/Mafalda-SFU/scalabilityModesUtils.git"
   },
   "keywords": [
     "Mediasoup",
@@ -24,9 +24,9 @@
   "author": "Jesús Leganés-Combarro 'piranna' <piranna@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Mafalda-SFU/scalability-modes/issues"
+    "url": "https://github.com/Mafalda-SFU/scalabilityModesUtils/issues"
   },
-  "homepage": "https://github.com/Mafalda-SFU/scalability-modes#readme",
+  "homepage": "https://github.com/Mafalda-SFU/scalabilityModesUtils#readme",
   "devDependencies": {
     "tar-stream": "^3.1.7",
     "typescript": "^5.6.3"
