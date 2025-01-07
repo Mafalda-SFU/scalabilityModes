@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const {ok} = require('node:assert');
 const {writeFile} = require('node:fs/promises');
 const {sep} = require('node:path');
 const {Readable} = require('node:stream');
@@ -15,13 +16,18 @@ const repo = 'versatica/mediasoup'
 const {argv: [,, version]} = process;
 
 
+ok(version, 'version is required');
+
+
 (async function()
 {
-  const {body} = await fetch(
+  const response = await fetch(
     `https://api.github.com/repos/${repo}/tarball/${version}`
   )
 
-  const extractor = Readable.fromWeb(body).pipe(createGunzip()).pipe(extract())
+  ok(response.ok, response.statusText)
+
+  const extractor = Readable.fromWeb(response.body).pipe(createGunzip()).pipe(extract())
 
   for await (const entry of extractor)
   {
